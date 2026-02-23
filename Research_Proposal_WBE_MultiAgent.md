@@ -12,15 +12,6 @@
 
 ---
 
-## List of Figures
-
-| Figure | Title | Section |
-|---|---|---|
-| **Figure 1** | Three-tier federated architecture for privacy-preserving wastewater virus surveillance | §4.1 |
-| **Figure 2** | Multi-agent metagenomics pipeline (raw FASTQ → public health report) | §4.2 |
-| **Figure 3** | Three-stream alert scoring framework: evidence convergence to tiered public health action | §4.2 |
-
----
 
 ## Abstract
 
