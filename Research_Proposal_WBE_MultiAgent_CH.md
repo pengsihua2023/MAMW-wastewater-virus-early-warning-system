@@ -83,7 +83,7 @@ CDC 1CDP路线图规定了RESTful API、基于角色的访问控制及对容器�
 
 本平台采用三层联邦设计，在分析能力与数据隐私之间取得平衡（图1）。第一层（实验室边缘端）负责原始mNGS数据生产，通过NCBI HRRT在本地执行宿主去除，输出不含人类读段的隐私脱敏FASTQ文件。第二层（区域HPC，SLURM + Apptainer）执行生物信息学智能体——Kraken2、MEGAHIT、Freyja、iVar——并维护站点级趋势数据库。第三层（CDC 1CDP云端）托管PlannerAgent编排器、AlertAgent、ReportAgent及负责两用研究关切（DURC）生物安全筛查的OutputFilterAgent。
 
-![图1](figures/figure1.png)
+![图1](figures/proposal_fig1_pipeline.png)
 
 **图1.** 隐私保护型废水病毒监测三层联邦架构。每层之间设隐私边界：第一层在本地保留所有原始读段；第二层仅接收宿主去除后的FASTQ，向第三层传输汇总归一化指标（WVAL、Z分数、谱系计数）；任何原始序列均不跨越边界。第一、二层的LLM推理在本地托管模型（Llama 3.1-70B，通过vLLM部署）上运行；商业API调用仅限于第三层的汇总摘要，不含序列级数据。
 
