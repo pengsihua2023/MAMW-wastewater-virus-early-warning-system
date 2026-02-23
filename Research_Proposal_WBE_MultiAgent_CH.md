@@ -101,7 +101,7 @@ CDC 1CDP路线图规定了RESTful API、基于角色的访问控制及对容器�
 
 本平台采用三层联邦设计，在分析能力与数据隐私之间取得平衡（图1）。第一层（实验室边缘端）负责原始mNGS数据生产，通过NCBI HRRT在本地执行宿主去除，输出不含人类读段的隐私脱敏FASTQ文件。第二层（区域HPC，SLURM + Apptainer）执行生物信息学智能体——Kraken2、MEGAHIT、Freyja、iVar——并维护站点级趋势数据库。第三层（CDC 1CDP云端）托管PlannerAgent编排器、AlertAgent、ReportAgent及负责两用研究关切（DURC）生物安全筛查的OutputFilterAgent。
 
-![图1](figures/proposal_fig2_architecture.png)
+![图1](figures/figure1.png)
 
 **图1.** 隐私保护型废水病毒监测三层联邦架构。每层之间设隐私边界：第一层在本地保留所有原始读段；第二层仅接收宿主去除后的FASTQ，向第三层传输汇总归一化指标（WVAL、Z分数、谱系计数）；任何原始序列均不跨越边界。第一、二层的LLM推理在本地托管模型（Llama 3.1-70B，通过vLLM部署）上运行；商业API调用仅限于第三层的汇总摘要，不含序列级数据。
 
@@ -123,13 +123,13 @@ CDC 1CDP路线图规定了RESTful API、基于角色的访问控制及对容器�
 | **AlertAgent** | 规则引擎 + LLM | 分级预警（GREEN/YELLOW/ORANGE/RED） |
 | **ReportAgent** | python-docx, matplotlib | DOCX/PDF预警简报 |
 
-![图2](figures/proposal_fig1_pipeline.png)
+![图2](figures/figure2.png)
 
 **图2.** 废水病毒监测多智能体宏基因组分析流程。原始FASTQ文件自上而下依次经过九个专业智能体，由中央PlannerAgent（虚线边框）统一编排。TaxonAgent与AssemblyAgent在宿主去除后并行执行，随后汇入VariantAgent。所有shell级工具调用（包括SLURM作业提交）均通过Executor（UserProxyAgent，灰色）统一路由，确保LLM推理与计算执行的严格分离。
 
 **预警评分**整合三个独立证据流：（1）病原体绝对丰度超过站点特异性第90百分位基线（TaxonAgent）；（2）新型或快速上升变异株检出（VariantAgent）；（3）流行病学异常——Z分数 > 3或周环比增长率 > 50%（EpiAgent）。至少两个独立证据流同时触发方可发出ORANGE或RED级预警，防止单一数据点引发误报升级。各预警分级的完整评分逻辑和建议公共卫生行动见图3。
 
-![图3](figures/proposal_fig3_alert.png)
+![图3](figures/figure3.png)
 
 **图3.** 三流证据汇聚预警分级框架。分类学、变异株和流行病学三个证据流各贡献 +1 或 +2 的复合评分；评分引擎要求至少两个独立证据流触发方可发出ORANGE或RED级预警。RED级预警（评分 ≥ 5）在任何传播前须经人机协同强制审核。该多流证据要求有效防止单一异常数据源驱动的误报升级。
 
