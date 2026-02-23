@@ -70,7 +70,6 @@ Freyja lineage deconvolution — already deployed at multiple NWSS sites — acc
 
 AutoGen v0.4 introduces an asynchronous, event-driven runtime supporting Python and .NET, cross-node distributed execution, and declarative agent-role specification [12,13]. The framework has been applied in biomedical contexts through BioAgents [15], which demonstrated autonomous execution of BLAST searches, multiple sequence alignments, and phylogenetic analyses via natural-language task specification. The Magentic-One architecture validated multi-agent coordination for multi-step web and data tasks with a structured task ledger managed by an Orchestrator agent [13].
 
-Our preliminary prototyping (n = 5 wastewater samples) confirms that an AutoGen-based pipeline calling Kraken2, Bracken, and Freyja via registered Python tool functions produces taxonomic and lineage outputs equivalent to a manually executed Nextflow pipeline, with the added capability to automatically flag and retry failed classification steps.
 
 ### 3.3 CDC Platform Alignment
 
