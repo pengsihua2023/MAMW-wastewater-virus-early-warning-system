@@ -4,14 +4,6 @@
 
 ---
 
-**Submitted to:** Centers for Disease Control and Prevention (CDC) / National Center for Emerging and Zoonotic Infectious Diseases (NCEZID)
-**Mechanism:** R01 (Research Project Grant) — Exploratory
-**Date:** February 2026
-**Principal Investigator:** [PI Name, Affiliation]
-**Collaborating Institutions:** [Institution A], [Institution B]
-
----
-
 
 ## Abstract
 
@@ -261,5 +253,4 @@ If the system achieves its target lead time of five or more days, routine deploy
 
 ---
 
-*Word count (body): ~3,800 words*
-*This proposal conforms to NIH SF424 formatting guidelines. Budget justification and human subjects documentation are provided as separate appendices.*
+
