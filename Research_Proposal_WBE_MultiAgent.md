@@ -101,7 +101,7 @@ CDC's 1CDP roadmap specifies RESTful APIs, role-based access control, and suppor
 
 The platform adopts a three-tier federated design to balance analytical power with data privacy (Figure 1). Tier 1 (laboratory edge) generates raw mNGS data, performs local host depletion via the NCBI Human Read Removal Tool (HRRT), and outputs privacy-scrubbed FASTQ files containing no human reads. Tier 2 (regional HPC, SLURM + Apptainer) executes the bioinformatics agents — Kraken2, MEGAHIT, Freyja, iVar — and maintains site-level trend databases. Tier 3 (CDC 1CDP cloud) hosts the PlannerAgent orchestrator, AlertAgent, ReportAgent, and the OutputFilterAgent for DURC biosafety screening.
 
-![Figure 1](figures/proposal_fig1_architecture.png)
+![Figure 1](figures/figure1.png)
 
 **Figure 1.** Three-tier federated architecture for privacy-preserving wastewater virus surveillance. Each tier is separated by a privacy boundary: Tier 1 retains all raw reads locally; Tier 2 receives only host-depleted FASTQ and transmits aggregate normalized metrics (WVAL, Z-scores, lineage counts) to Tier 3; no raw sequences cross any boundary. LLM inference on Tiers 1–2 runs on locally hosted models (Llama 3.1-70B via vLLM); commercial API calls are restricted to Tier 3 aggregate summaries only.
 
@@ -123,13 +123,13 @@ The platform comprises nine agents, each with a defined role, tool set, and stru
 | **AlertAgent** | Rule engine + LLM | Tiered alert (GREEN/YELLOW/ORANGE/RED) |
 | **ReportAgent** | python-docx, matplotlib | DOCX/PDF bulletin |
 
-![Figure 2](figures/proposal_fig1_pipeline.png)
+![Figure 2](figures/figure2.png)
 
 **Figure 2.** Multi-agent metagenomics pipeline for wastewater virus surveillance. Raw FASTQ files flow top-to-bottom through nine specialized agents orchestrated by a central PlannerAgent (dashed border). TaxonAgent and AssemblyAgent execute in parallel following host depletion, then converge into the VariantAgent. All shell-level tool calls — including SLURM job submissions — are routed exclusively through the Executor (UserProxyAgent, grey), maintaining a strict separation between LLM reasoning and computational execution.
 
 **Alert scoring** integrates three independent evidence streams: (1) absolute pathogen abundance exceeding the site-specific 90th-percentile baseline (TaxonAgent), (2) novel or surging variant detection (VariantAgent), and (3) epidemiological anomaly — Z-score > 3 or week-over-week growth > 50% (EpiAgent). At least two independent streams must trigger before an ORANGE or RED alert is issued, preventing escalation on a single data point. The complete scoring logic and recommended public health actions for each alert tier are shown in Figure 3.
 
-![Figure 3](figures/proposal_fig3_alert.png)
+![Figure 3](figures/figure3.png)
 
 **Figure 3.** Three-stream alert scoring framework. Taxonomic, variant, and epidemiological evidence streams each contribute +1 or +2 to a composite score; the scoring engine requires at least two independent streams to issue an ORANGE or RED alert. RED alerts (score ≥ 5) trigger mandatory human-in-the-loop review before any dissemination. This multi-stream requirement guards against false escalation driven by a single anomalous data source.
 
