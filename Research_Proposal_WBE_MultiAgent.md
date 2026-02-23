@@ -83,7 +83,7 @@ CDC's 1CDP roadmap specifies RESTful APIs, role-based access control, and suppor
 
 The platform adopts a three-tier federated design to balance analytical power with data privacy (Figure 1). Tier 1 (laboratory edge) generates raw mNGS data, performs local host depletion via the NCBI Human Read Removal Tool (HRRT), and outputs privacy-scrubbed FASTQ files containing no human reads. Tier 2 (regional HPC, SLURM + Apptainer) executes the bioinformatics agents — Kraken2, MEGAHIT, Freyja, iVar — and maintains site-level trend databases. Tier 3 (CDC 1CDP cloud) hosts the PlannerAgent orchestrator, AlertAgent, ReportAgent, and the OutputFilterAgent for DURC biosafety screening.
 
-![Figure 1](figures/Figure-1-new.jpg)
+![Figure 1](figures/figure-1-new2.jpg)
 
 **Figure 1.** Three-tier federated architecture for privacy-preserving wastewater virus surveillance. Each tier is separated by a privacy boundary: Tier 1 retains all raw reads locally; Tier 2 receives only host-depleted FASTQ and transmits aggregate normalized metrics (WVAL, Z-scores, lineage counts) to Tier 3; no raw sequences cross any boundary. LLM inference on Tiers 1–2 runs on locally hosted models (Llama 3.1-70B via vLLM); commercial API calls are restricted to Tier 3 aggregate summaries only.
 
