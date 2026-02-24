@@ -91,7 +91,7 @@ Tier boundaries enforce strict data minimization. Raw reads never leave Tier 1. 
 
 ### 4.2 Agent Roles and Implementation
 
-The platform comprises nine agents, each with a defined role, tool set, and structured output contract. As illustrated in Figure 2, raw FASTQ files enter a top-to-bottom pipeline: QCAgent and FilterAgent prepare the data, TaxonAgent and AssemblyAgent run in parallel for classification and de novo assembly, VariantAgent performs lineage deconvolution, EpiAgent detects trends, AlertAgent synthesizes the risk signal, and ReportAgent produces the final bulletin. The PlannerAgent supervises all stages; the Executor (UserProxyAgent) is the sole node permitted to invoke shell commands, enforcing a clean separation between reasoning and execution.
+The platform comprises nine agents, each with a defined role, tool set, and structured output contract. As illustrated in Figure 1, raw FASTQ files enter a top-to-bottom pipeline: QCAgent and FilterAgent prepare the data, TaxonAgent and AssemblyAgent run in parallel for classification and de novo assembly, VariantAgent performs lineage deconvolution, EpiAgent detects trends, AlertAgent synthesizes the risk signal, and ReportAgent produces the final bulletin. The PlannerAgent supervises all stages; the Executor (UserProxyAgent) is the sole node permitted to invoke shell commands, enforcing a clean separation between reasoning and execution.
 
 | Agent | Primary Tools | Key Output |
 |---|---|---|
