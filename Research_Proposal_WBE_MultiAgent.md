@@ -110,7 +110,7 @@ The platform comprises nine agents, each with a defined role, tool set, and stru
 
 ![Figure 3](figures/figure-3-new.jpg)
 
-**Figure 3.** Three-stream alert scoring framework. Taxonomic, variant, and epidemiological evidence streams each contribute +1 or +2 to a composite score; the scoring engine requires at least two independent streams to issue an ORANGE or RED alert. RED alerts (score ≥ 5) trigger mandatory human-in-the-loop review before any dissemination. This multi-stream requirement guards against false escalation driven by a single anomalous data source.
+**Figure 2.** Three-stream alert scoring framework. Taxonomic, variant, and epidemiological evidence streams each contribute +1 or +2 to a composite score; the scoring engine requires at least two independent streams to issue an ORANGE or RED alert. RED alerts (score ≥ 5) trigger mandatory human-in-the-loop review before any dissemination. This multi-stream requirement guards against false escalation driven by a single anomalous data source.
 
 ### 4.3 Normalization and Trend Detection
 
