@@ -1,6 +1,6 @@
 # Research Proposal
 
-## An Agentic AI Platform for Metagenomics-Driven Wastewater Virus Surveillance: Integrating AutoGen Multi-Agent Systems with the CDC National Wastewater Surveillance Network
+## An AutoGen-Based Multi-Agent AI Platform for Metagenomic Wastewater Virus Surveillance
 
 ---
 
