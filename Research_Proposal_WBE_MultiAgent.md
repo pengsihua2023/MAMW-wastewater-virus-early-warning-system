@@ -111,7 +111,7 @@ The platform comprises nine agents, each with a defined role, tool set, and stru
 
 **Alert scoring** integrates three independent evidence streams: (1) absolute pathogen abundance exceeding the site-specific 90th-percentile baseline (TaxonAgent), (2) novel or surging variant detection (VariantAgent), and (3) epidemiological anomaly — Z-score > 3 or week-over-week growth > 50% (EpiAgent). At least two independent streams must trigger before an ORANGE or RED alert is issued, preventing escalation on a single data point. The complete scoring logic and recommended public health actions for each alert tier are shown in Figure 3.
 
-![Figure 3](figures/figure3.png)
+![Figure 3](figures/figure-3-new.jpg)
 
 **Figure 3.** Three-stream alert scoring framework. Taxonomic, variant, and epidemiological evidence streams each contribute +1 or +2 to a composite score; the scoring engine requires at least two independent streams to issue an ORANGE or RED alert. RED alerts (score ≥ 5) trigger mandatory human-in-the-loop review before any dissemination. This multi-stream requirement guards against false escalation driven by a single anomalous data source.
 
