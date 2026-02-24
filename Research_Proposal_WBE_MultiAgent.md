@@ -48,13 +48,13 @@ This project addresses the following central hypothesis:
 We pursue three specific aims:
 
 **Aim 1 — Design and implement the multi-agent metagenomics surveillance platform.**
-Build, document, and containerize a nine-agent AutoGen v0.4 system that executes the complete wastewater mNGS workflow, from raw FASTQ ingestion to alert generation and Word/PDF report production, within the three-tier federated architecture described in Section 4.1 (Figures 1–2). Deliverable: open-source platform deposited on GitHub with full documentation and test datasets.
+Build, document, and containerize a nine-agent AutoGen v0.4 system that executes the complete wastewater mNGS workflow, from raw FASTQ ingestion to alert generation and Word/PDF report production, within the three-tier federated architecture described in Section 4.1 (Figures 1). Deliverable: open-source platform deposited on GitHub with full documentation and test datasets.
 
 **Aim 2 — Validate analytical performance against reference methods.**
 Process 18 months of weekly wastewater samples from three NWSS sentinel sites in parallel with existing qPCR assays and clinical case data. Assess: (a) detection sensitivity and specificity for known pathogens, (b) novel pathogen discovery rate, (c) lead time of wastewater signal over clinical ascertainment, and (d) alert precision (positive predictive value of ORANGE/RED alerts against subsequent case surges).
 
 **Aim 3 — Evaluate operational feasibility and human-in-the-loop governance.**
-Assess system runtime on CDC-compatible HPC (SLURM, Apptainer), cost per sample, staff time saved versus manual pipeline operation, and epidemiologist acceptability of AI-generated alert reports. Develop and test the human-in-the-loop approval workflow for ORANGE and RED alerts (Figure 3).
+Assess system runtime on CDC-compatible HPC (SLURM, Apptainer), cost per sample, staff time saved versus manual pipeline operation, and epidemiologist acceptability of AI-generated alert reports. Develop and test the human-in-the-loop approval workflow for ORANGE and RED alerts (Figure 2).
 
 ---
 
