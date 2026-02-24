@@ -105,9 +105,6 @@ The platform comprises nine agents, each with a defined role, tool set, and stru
 | **AlertAgent** | Rule engine + LLM | Tiered alert (GREEN/YELLOW/ORANGE/RED) |
 | **ReportAgent** | python-docx, matplotlib | DOCX/PDF bulletin |
 
-![Figure 2](figures/figure2.png)
-
-**Figure 2.** Multi-agent metagenomics pipeline for wastewater virus surveillance. Raw FASTQ files flow top-to-bottom through nine specialized agents orchestrated by a central PlannerAgent (dashed border). TaxonAgent and AssemblyAgent execute in parallel following host depletion, then converge into the VariantAgent. All shell-level tool calls — including SLURM job submissions — are routed exclusively through the Executor (UserProxyAgent, grey), maintaining a strict separation between LLM reasoning and computational execution.
 
 **Alert scoring** integrates three independent evidence streams: (1) absolute pathogen abundance exceeding the site-specific 90th-percentile baseline (TaxonAgent), (2) novel or surging variant detection (VariantAgent), and (3) epidemiological anomaly — Z-score > 3 or week-over-week growth > 50% (EpiAgent). At least two independent streams must trigger before an ORANGE or RED alert is issued, preventing escalation on a single data point. The complete scoring logic and recommended public health actions for each alert tier are shown in Figure 3.
 
